@@ -1,6 +1,6 @@
 class PerformancesController < ApplicationController
   def index
-    @performances = Performance.all
+    @performances = Performance.page(params[:page]).per(10)
 
     render("performance_templates/index.html.erb")
   end
