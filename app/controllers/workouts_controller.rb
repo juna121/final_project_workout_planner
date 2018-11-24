@@ -43,7 +43,7 @@ class WorkoutsController < ApplicationController
     @workout = Workout.find(params.fetch("id_to_modify"))
 
     @workout.date = params.fetch("date")
-    @workout.user_id = params.fetch("user_id")
+    
 
     if @workout.valid?
       @workout.save
