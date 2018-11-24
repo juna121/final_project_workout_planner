@@ -11,28 +11,23 @@
         </a>
       </div>
 
-      <!-- Edit link performance start -->
       <div class="col">
         <a href="/performances/<%= @performance.id %>/edit" class="btn btn-block btn-outline-secondary">
           Edit performance
         </a>
       </div>
-      <!-- Edit link performance end -->
 
-      <!-- Delete link performance start -->
       <div class="col">
         <a href="/delete_performance/<%= @performance.id %>" class="btn btn-block btn-outline-secondary">
           Delete performance
         </a>
       </div>
-      <!-- Delete link performance end -->
     </div>
 
     <dl>
       <dt>
         Workout
       </dt>
-      <!-- Display workout_id start -->
       <dd>
         <% if @performance.workout.present? %>
           <a href="/workouts/<%= @performance.workout_id %>">
@@ -40,39 +35,31 @@
           </a>
         <% end %>
       </dd>
-      <!-- Display workout_id end -->
 
       <dt>
         Reps
       </dt>
-      <!-- Display reps start -->
       <dd>
         <%= @performance.reps %>
       </dd>
-      <!-- Display reps end -->
 
       <dt>
         Sets
       </dt>
-      <!-- Display sets start -->
       <dd>
         <%= @performance.sets %>
       </dd>
-      <!-- Display sets end -->
 
       <dt>
         Weight
       </dt>
-      <!-- Display weight start -->
       <dd>
         <%= @performance.weight %>
       </dd>
-      <!-- Display weight end -->
 
       <dt>
         Exercise
       </dt>
-      <!-- Display exercise_id start -->
       <dd>
         <% if @performance.exercise.present? %>
           <a href="/exercises/<%= @performance.exercise_id %>">
@@ -80,28 +67,21 @@
           </a>
         <% end %>
       </dd>
-      <!-- Display exercise_id end -->
 
       <dt>
         Created at
       </dt>
-      <!-- Display created_at start -->
       <dd>
         <%= time_ago_in_words(@performance.created_at) %> ago
       </dd>
-      <!-- Display created_at end -->
 
       <dt>
         Updated at
       </dt>
-      <!-- Display updated_at start -->
       <dd>
         <%= time_ago_in_words(@performance.updated_at) %> ago
       </dd>
-      <!-- Display updated_at end -->
     </dl>
   </div>
 </div>
 
-<!-- Show Page Customization starts -->
-<!-- Show Page Customization end -->

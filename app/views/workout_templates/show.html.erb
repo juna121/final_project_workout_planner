@@ -11,7 +11,6 @@
         </a>
       </div>
 
-      <!-- Edit link workout start -->
       <div class="col">
         <% if current_user == @workout.user %>
           <a href="/workouts/<%= @workout.id %>/edit" class="btn btn-block btn-sm btn-outline-secondary">
@@ -19,9 +18,7 @@
           </a>
         <% end %>
       </div>
-      <!-- Edit link workout end -->
 
-      <!-- Delete link workout start -->
       <div class="col">
         <% if current_user == @workout.user %>
           <a href="/delete_workout/<%= @workout.id %>" class="btn btn-block btn-sm btn-outline-secondary">
@@ -29,23 +26,19 @@
           </a>
         <% end %>
       </div>
-      <!-- Delete link workout end -->
     </div>
 
     <dl>
       <dt>
         Date
       </dt>
-      <!-- Display date start -->
       <dd>
         <%= @workout.date %>
       </dd>
-      <!-- Display date end -->
 
       <dt>
         User
       </dt>
-      <!-- Display user_id start -->
       <dd>
         <% if @workout.user.present? %>
           <a href="/users/<%= @workout.user_id %>">
@@ -53,33 +46,26 @@
           </a>
         <% end %>
       </dd>
-      <!-- Display user_id end -->
 
       <dt>
         Created at
       </dt>
-      <!-- Display created_at start -->
       <dd>
         <%= time_ago_in_words(@workout.created_at) %> ago
       </dd>
-      <!-- Display created_at end -->
 
       <dt>
         Updated at
       </dt>
-      <!-- Display updated_at start -->
       <dd>
         <%= time_ago_in_words(@workout.updated_at) %> ago
       </dd>
-      <!-- Display updated_at end -->
     </dl>
   </div>
 </div>
 
-<!-- Show Page Customization starts -->
 <div class="row mb-3">
   <div class="col-md-8 offset-md-2">
     <%= render partial: "workout_templates/workout_performances" %>
   </div>
 </div>
-<!-- Show Page Customization end -->

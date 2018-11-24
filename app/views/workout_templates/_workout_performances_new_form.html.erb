@@ -1,59 +1,38 @@
-<!-- Form performance start -->
 <form action="/create_performance_from_workout" method="post">
-<!-- Form performance end -->
 
-  <!-- Label and input for workout_id start -->
-  <!-- Input for workout_id start -->
   <input type="hidden" name="workout_id" value="<%= @workout.id %>">
-  <!-- Input for workout_id end -->
 
-  <!-- Label and input for reps start -->
   <div class="form-group">
     <label for="reps">
       Reps
     </label>
 
-    <!-- Input for reps start -->
     <input type="text" id="reps" name="reps" class="form-control" value="<%= @performance.reps %>">
-    <!-- Input for reps end -->
   </div>
-  <!-- Label and input for reps end -->
 
-  <!-- Label and input for sets start -->
   <div class="form-group">
     <label for="sets">
       Sets
     </label>
 
-    <!-- Input for sets start -->
     <input type="text" id="sets" name="sets" class="form-control" value="<%= @performance.sets %>">
-    <!-- Input for sets end -->
   </div>
-  <!-- Label and input for sets end -->
 
-  <!-- Label and input for weight start -->
   <div class="form-group">
     <label for="weight">
       Weight
     </label>
 
-    <!-- Input for weight start -->
     <input type="text" id="weight" name="weight" class="form-control" value="<%= @performance.weight %>">
-    <!-- Input for weight end -->
   </div>
-  <!-- Label and input for weight end -->
 
-  <!-- Label and input for exercise_id start -->
   <div class="form-group">
     <label for="exercise_id">
       Exercise
     </label>
 
-    <!-- Input for exercise_id start -->
     <%= select_tag(:exercise_id, options_from_collection_for_select(Exercise.all, :id, :name, @performance.exercise_id), :class => "form-control") %>
-    <!-- Input for exercise_id end -->
   </div>
-  <!-- Label and input for exercise_id end -->
 
   <button class="btn btn-block btn-outline-secondary">
     Create performance

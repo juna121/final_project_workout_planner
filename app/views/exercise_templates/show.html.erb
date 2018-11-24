@@ -11,67 +11,53 @@
         </a>
       </div>
 
-      <!-- Edit link exercise start -->
       <div class="col">
         <a href="/exercises/<%= @exercise.id %>/edit" class="btn btn-block btn-outline-secondary">
           Edit exercise
         </a>
       </div>
-      <!-- Edit link exercise end -->
 
-      <!-- Delete link exercise start -->
       <div class="col">
         <a href="/delete_exercise/<%= @exercise.id %>" class="btn btn-block btn-outline-secondary">
           Delete exercise
         </a>
       </div>
-      <!-- Delete link exercise end -->
     </div>
 
     <dl>
       <dt>
         Name
       </dt>
-      <!-- Display name start -->
       <dd>
         <%= @exercise.name %>
       </dd>
-      <!-- Display name end -->
 
       <dt>
         Muscle
       </dt>
-      <!-- Display muscle start -->
       <dd>
         <%= @exercise.muscle %>
       </dd>
-      <!-- Display muscle end -->
 
       <dt>
         Created at
       </dt>
-      <!-- Display created_at start -->
       <dd>
         <%= time_ago_in_words(@exercise.created_at) %> ago
       </dd>
-      <!-- Display created_at end -->
 
       <dt>
         Updated at
       </dt>
-      <!-- Display updated_at start -->
       <dd>
         <%= time_ago_in_words(@exercise.updated_at) %> ago
       </dd>
-      <!-- Display updated_at end -->
     </dl>
   </div>
 </div>
 
-<!-- Show Page Customization starts -->
 <div class="row mb-3">
   <div class="col-md-8 offset-md-2">
     <%= render partial: "exercise_templates/exercise_performances" %>
   </div>
 </div>
-<!-- Show Page Customization end -->

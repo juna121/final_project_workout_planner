@@ -1,4 +1,3 @@
-<!-- Validation failure messages -->
 <% if @exercise.present? %>
   <% if @exercise.errors.any? %>
     <% @exercise.errors.full_messages.each do |message| %>
@@ -16,33 +15,23 @@
 
 <hr>
 
-<!-- Form exercise start -->
 <form action="/create_exercise" method="post">
-<!-- Form exercise end -->
 
-  <!-- Label and input for name start -->
   <div class="form-group">
     <label for="name">
       Name
     </label>
 
-    <!-- Input for name start -->
     <input type="text" id="name" name="name" class="form-control" value="<%= @exercise.name %>">
-    <!-- Input for name end -->
   </div>
-  <!-- Label and input for name end -->
 
-  <!-- Label and input for muscle start -->
   <div class="form-group">
     <label for="muscle">
       Muscle
     </label>
 
-    <!-- Input for muscle start -->
     <input type="text" id="muscle" name="muscle" class="form-control" value="<%= @exercise.muscle %>">
-    <!-- Input for muscle end -->
   </div>
-  <!-- Label and input for muscle end -->
 
   <button class="btn btn-block btn-outline-secondary">
     Create exercise
