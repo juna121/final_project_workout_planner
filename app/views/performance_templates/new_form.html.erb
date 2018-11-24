@@ -16,7 +16,7 @@
     </label>
 
     <!-- Input for workout_id start -->
-    <input type="text" id="workout_id" name="workout_id" class="form-control">
+    <%= select_tag(:workout_id, options_from_collection_for_select(Workout.all, :id, :date, @performance.workout_id), :class => "form-control") %>
     <!-- Input for workout_id end -->
   </div>
   <!-- Label and input for workout_id end -->
