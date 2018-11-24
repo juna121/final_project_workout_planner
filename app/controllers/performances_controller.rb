@@ -35,6 +35,42 @@ class PerformancesController < ApplicationController
     end
   end
 
+  def create_row_from_workout
+    @performance = Performance.new
+
+    @performance.workout_id = params.fetch("workout_id")
+    @performance.reps = params.fetch("reps")
+    @performance.sets = params.fetch("sets")
+    @performance.weight = params.fetch("weight")
+    @performance.exercise_id = params.fetch("exercise_id")
+
+    if @performance.valid?
+      @performance.save
+
+      redirect_to("/workouts/#{@performance.workout_id}", notice: "Performance created successfully.")
+    else
+      render("performance_templates/new_form_with_errors.html.erb")
+    end
+  end
+
+  def create_row_from_exercise
+    @performance = Performance.new
+
+    @performance.workout_id = params.fetch("workout_id")
+    @performance.reps = params.fetch("reps")
+    @performance.sets = params.fetch("sets")
+    @performance.weight = params.fetch("weight")
+    @performance.exercise_id = params.fetch("exercise_id")
+
+    if @performance.valid?
+      @performance.save
+
+      redirect_to("/exercises/#{@performance.exercise_id}", notice: "Performance created successfully.")
+    else
+      render("performance_templates/new_form_with_errors.html.erb")
+    end
+  end
+
   def edit_form
     @performance = Performance.find(params.fetch("prefill_with_id"))
 
