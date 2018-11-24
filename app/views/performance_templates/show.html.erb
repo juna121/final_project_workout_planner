@@ -1,0 +1,100 @@
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h1>
+      Performance #<%= @performance.id %> details
+    </h1>
+
+    <div class="row mb-3">
+      <div class="col">
+        <a href="/performances" class="btn btn-block btn-outline-secondary">
+          Go back
+        </a>
+      </div>
+
+      <!-- Edit link performance start -->
+      <div class="col">
+        <a href="/performances/<%= @performance.id %>/edit" class="btn btn-block btn-outline-secondary">
+          Edit performance
+        </a>
+      </div>
+      <!-- Edit link performance end -->
+
+      <!-- Delete link performance start -->
+      <div class="col">
+        <a href="/delete_performance/<%= @performance.id %>" class="btn btn-block btn-outline-secondary">
+          Delete performance
+        </a>
+      </div>
+      <!-- Delete link performance end -->
+    </div>
+
+    <dl>
+      <dt>
+        Workout
+      </dt>
+      <!-- Display workout_id start -->
+      <dd>
+        <%= @performance.workout_id %>
+      </dd>
+      <!-- Display workout_id end -->
+
+      <dt>
+        Reps
+      </dt>
+      <!-- Display reps start -->
+      <dd>
+        <%= @performance.reps %>
+      </dd>
+      <!-- Display reps end -->
+
+      <dt>
+        Sets
+      </dt>
+      <!-- Display sets start -->
+      <dd>
+        <%= @performance.sets %>
+      </dd>
+      <!-- Display sets end -->
+
+      <dt>
+        Weight
+      </dt>
+      <!-- Display weight start -->
+      <dd>
+        <%= @performance.weight %>
+      </dd>
+      <!-- Display weight end -->
+
+      <dt>
+        Exercise
+      </dt>
+      <!-- Display exercise_id start -->
+      <dd>
+        <%= @performance.exercise_id %>
+      </dd>
+      <!-- Display exercise_id end -->
+
+      <dt>
+        Created at
+      </dt>
+      <!-- Display created_at start -->
+      <dd>
+        <%= time_ago_in_words(@performance.created_at) %> ago
+      </dd>
+      <!-- Display created_at end -->
+
+      <dt>
+        Updated at
+      </dt>
+      <!-- Display updated_at start -->
+      <dd>
+        <%= time_ago_in_words(@performance.updated_at) %> ago
+      </dd>
+      <!-- Display updated_at end -->
+    </dl>
+  </div>
+</div>
+
+<!-- Show Page Customization starts -->
+
+<!-- Show Page Customization end -->
