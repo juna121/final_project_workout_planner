@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "workouts#index"
   # Routes for the Performance resource:
 
   # CREATE
