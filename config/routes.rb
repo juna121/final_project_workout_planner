@@ -1,4 +1,23 @@
 Rails.application.routes.draw do
+  # Routes for the Exercise resource:
+
+  # CREATE
+  get("/exercises/new", { :controller => "exercises", :action => "new_form" })
+  post("/create_exercise", { :controller => "exercises", :action => "create_row" })
+
+  # READ
+  get("/exercises", { :controller => "exercises", :action => "index" })
+  get("/exercises/:id_to_display", { :controller => "exercises", :action => "show" })
+
+  # UPDATE
+  get("/exercises/:prefill_with_id/edit", { :controller => "exercises", :action => "edit_form" })
+  post("/update_exercise/:id_to_modify", { :controller => "exercises", :action => "update_row" })
+
+  # DELETE
+  get("/delete_exercise/:id_to_remove", { :controller => "exercises", :action => "destroy_row" })
+
+  #------------------------------
+
   # Routes for the Workout resource:
 
   # CREATE

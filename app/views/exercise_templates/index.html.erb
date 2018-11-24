@@ -1,0 +1,92 @@
+<div class="row mb-3">
+  <div class="col-md-12">
+    <h1>
+      All exercises
+    </h1>
+
+    <a href="/exercises/new" class="btn btn-block btn-outline-secondary">
+      Add a new exercise
+    </a>
+  </div>
+</div>
+
+<!-- Ransack Code start -->
+
+<!-- Ransack Code end -->
+
+<!-- Location Map Code start -->
+
+<!-- Location Map Code end -->
+
+<hr>
+
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Muscle
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @exercises.each do |exercise| %>
+      <tr>
+        <!-- Display exercise.id start -->
+        <td>
+          <%= exercise.id %>
+        </td>
+        <!-- Display exercise.id end -->
+
+        <!-- Display exercise.name start -->
+        <td>
+          <%= exercise.name %>
+        </td>
+        <!-- Display exercise.name end -->
+
+        <!-- Display exercise.muscle start -->
+        <td>
+          <%= exercise.muscle %>
+        </td>
+        <!-- Display exercise.muscle end -->
+
+        <!-- Display exercise.created_at start -->
+        <td>
+          <%= time_ago_in_words(exercise.created_at) %> ago
+        </td>
+        <!-- Display exercise.created_at end -->
+
+        <!-- Display exercise.updated_at start -->
+        <td>
+          <%= time_ago_in_words(exercise.updated_at) %> ago
+        </td>
+        <!-- Display exercise.updated_at end -->
+
+        <td>
+          <a href="/exercises/<%= exercise.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

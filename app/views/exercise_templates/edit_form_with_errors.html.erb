@@ -1,0 +1,53 @@
+<!-- Validation failure messages -->
+<% if @exercise.errors.any? %>
+  <% @exercise.errors.full_messages.each do |message| %>
+    <div class="alert">
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<h1>
+  Edit exercise #<%= @exercise.id %>
+</h1>
+
+<hr>
+
+<!-- Form exercise start -->
+<form action="/update_exercise/<%= @exercise.id %>" method="post">
+<!-- Form exercise end -->
+
+  <!-- Label and input for name start -->
+  <div class="form-group">
+    <label for="name">
+      Name
+    </label>
+
+    <!-- Input for name start -->
+    <input type="text" id="name" name="name" class="form-control" value="<%= @exercise.name %>">
+    <!-- Input for name end -->
+  </div>
+  <!-- Label and input for name end -->
+
+  <!-- Label and input for muscle start -->
+  <div class="form-group">
+    <label for="muscle">
+      Muscle
+    </label>
+
+    <!-- Input for muscle start -->
+    <input type="text" id="muscle" name="muscle" class="form-control" value="<%= @exercise.muscle %>">
+    <!-- Input for muscle end -->
+  </div>
+  <!-- Label and input for muscle end -->
+
+  <button class="btn btn-block btn-outline-secondary">
+    Update exercise
+  </button>
+</form>
+
+<hr>
+
+<a href="/exercises">
+  Go back
+</a>
