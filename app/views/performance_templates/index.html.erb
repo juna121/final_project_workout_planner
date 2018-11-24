@@ -70,7 +70,11 @@
 
         <!-- Display performance.workout_id start -->
         <td>
-          <%= performance.workout.date %>
+          <% if performance.workout.present? %>
+            <a href="/workouts/<%= performance.workout.id %>">
+              <%= performance.workout.date %>
+            </a>
+          <% end %>
         </td>
         <!-- Display performance.workout_id end -->
 
@@ -94,7 +98,11 @@
 
         <!-- Display performance.exercise_id start -->
         <td>
-          <%= performance.exercise.name %>
+          <% if performance.exercise.present? %>
+            <a href="/exercises/<%= performance.exercise.id %>">
+              <%= performance.exercise.name %>
+            </a>
+          <% end %>
         </td>
         <!-- Display performance.exercise_id end -->
 

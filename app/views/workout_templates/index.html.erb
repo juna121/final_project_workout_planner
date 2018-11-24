@@ -64,7 +64,11 @@
 
         <!-- Display workout.user_id start -->
         <td>
-          <%= workout.user.email %>
+          <% if workout.user.present? %>
+            <a href="/users/<%= workout.user.id %>">
+              <%= workout.user.email %>
+            </a>
+          <% end %>
         </td>
         <!-- Display workout.user_id end -->
 
