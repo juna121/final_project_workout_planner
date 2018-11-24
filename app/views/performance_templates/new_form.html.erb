@@ -64,7 +64,7 @@
     </label>
 
     <!-- Input for exercise_id start -->
-    <input type="text" id="exercise_id" name="exercise_id" class="form-control">
+    <%= select_tag(:exercise_id, options_from_collection_for_select(Exercise.all, :id, :name, @performance.exercise_id), :class => "form-control") %>
     <!-- Input for exercise_id end -->
   </div>
   <!-- Label and input for exercise_id end -->
