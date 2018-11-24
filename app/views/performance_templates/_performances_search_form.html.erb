@@ -1,0 +1,128 @@
+<%= search_form_for @q, :class => collapse_search_form, :id => "performances_filters" do |f| %>
+  <p class="lead">Narrow results:</p>
+
+  <div class="form-group">
+    <%= f.label :weight_cont, "Weight contains" %>
+    <%= f.text_field :weight_cont, :class => "form-control", :placeholder => "Weight contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :sets, "Sets" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <%= f.text_field :sets_gteq, :class => "form-control", :placeholder => "Sets greater than or equal to" %>
+      </div>
+      <div class='col-md-6'>
+        <%= f.text_field :sets_lteq, :class => "form-control", :placeholder => "Sets less than or equal to" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :reps, "Reps" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <%= f.text_field :reps_gteq, :class => "form-control", :placeholder => "Reps greater than or equal to" %>
+      </div>
+      <div class='col-md-6'>
+        <%= f.text_field :reps_lteq, :class => "form-control", :placeholder => "Reps less than or equal to" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :created_at, "Created at" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <div class='input-group date' id='created_atgteqPicker' data-target-input="nearest">
+          <%= f.text_field :created_at_gteq, :class => "form-control datetimepicker-input", :placeholder => "Created at greater than or equal to", :data => {:target => '#created_atgteqPicker'} %>
+          <div class="input-group-append" data-target='#created_atgteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <div class='col-md-6'>
+        <div class='input-group date' id='created_atlteqPicker' data-target-input="nearest">
+          <%= f.text_field :created_at_lteq, :class => "form-control datetimepicker-input", :placeholder => "Created at less than or equal to", :data => {:target => '#created_atlteqPicker'} %>
+          <div class="input-group-append" data-target='#created_atlteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+      $(function () {
+          $('#created_atgteqPicker').datetimepicker({
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#created_atlteqPicker').datetimepicker({
+              useCurrent: false,
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#created_atgteqPicker').on("dp.change", function (e) {
+              $('#created_atlteqPicker').data("DateTimePicker").minDate(e.date);
+          });
+          $('#created_atlteqPicker').on("dp.change", function (e) {
+              $('#created_atgteqPicker').data("DateTimePicker").maxDate(e.date);
+          });
+      });
+  </script>
+
+
+  <div class="form-group">
+    <%= f.label :date, "Workout Date" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <div class='input-group date' id='workoutgteqdatePicker' data-target-input="nearest">
+          <%= f.text_field :workout_date_gteq, :class => "form-control datetimepicker-input", :placeholder => "Workout Date greater than or equal to", :data => {:target => '#workoutgteqdatePicker'} %>
+          <div class="input-group-append" data-target='#workoutgteqdatePicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <div class='col-md-6'>
+        <div class='input-group date' id='workoutlteqdatePicker' data-target-input="nearest">
+          <%= f.text_field :workout_date_lteq, :class => "form-control datetimepicker-input", :placeholder => "Workout Date less than or equal to", :data => {:target => '#workoutlteqdatePicker'} %>
+          <div class="input-group-append" data-target='#workoutlteqdatePicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+      $(function () {
+          $('#workoutgteqdatePicker').datetimepicker({
+              format: 'MM/DD/YYYY'
+          });
+          $('#workoutlteqdatePicker').datetimepicker({
+              useCurrent: false,
+              format: 'MM/DD/YYYY'
+          });
+          $('#workoutgteqdatePicker').on("dp.change", function (e) {
+              $('#workoutlteqdatePicker').data("DateTimePicker").minDate(e.date);
+          });
+          $('#workoutlteqdatePicker').on("dp.change", function (e) {
+              $('#workoutgteqdatePicker').data("DateTimePicker").maxDate(e.date);
+          });
+      });
+  </script>
+
+  <div class="form-group">
+    <%= f.label :exercise_name_cont, "Exercise name contains" %>
+    <%= f.text_field :exercise_name_cont, :class => "form-control", :placeholder => "Exercise name contains" %>
+  </div>
+
+
+  <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
+
+  <a href="/performances" class="btn btn-outline-secondary btn-block mb-1">Clear filters</a>
+
+<% end %>
+
+<a class="btn btn-outline-secondary btn-block mb-1" data-toggle="collapse" href="#performances_filters">
+  Show filters
+</a>

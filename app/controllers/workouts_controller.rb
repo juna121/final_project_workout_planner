@@ -10,7 +10,8 @@ class WorkoutsController < ApplicationController
   end
 
   def index
-    @workouts = Workout.page(params[:page]).per(10)
+    @q = Workout.ransack(params[:q])
+    @workouts = @q.result(:distinct => true).includes(:user, :performances).page(params[:page]).per(10)
 
     render("workout_templates/index.html.erb")
   end

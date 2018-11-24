@@ -1,6 +1,7 @@
 class PerformancesController < ApplicationController
   def index
-    @performances = Performance.page(params[:page]).per(10)
+    @q = Performance.ransack(params[:q])
+    @performances = @q.result(:distinct => true).includes(:workout, :exercise).page(params[:page]).per(10)
 
     render("performance_templates/index.html.erb")
   end
