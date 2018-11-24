@@ -59,6 +59,22 @@ class PerformancesController < ApplicationController
     end
   end
 
+  def destroy_row_from_workout
+    @performance = Performance.find(params.fetch("id_to_remove"))
+
+    @performance.destroy
+
+    redirect_to("/workouts/#{@performance.workout_id}", notice: "Performance deleted successfully.")
+  end
+
+  def destroy_row_from_exercise
+    @performance = Performance.find(params.fetch("id_to_remove"))
+
+    @performance.destroy
+
+    redirect_to("/exercises/#{@performance.exercise_id}", notice: "Performance deleted successfully.")
+  end
+
   def destroy_row
     @performance = Performance.find(params.fetch("id_to_remove"))
 
