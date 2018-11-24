@@ -13,17 +13,21 @@
 
       <!-- Edit link workout start -->
       <div class="col">
-        <a href="/workouts/<%= @workout.id %>/edit" class="btn btn-block btn-outline-secondary">
-          Edit workout
-        </a>
+        <% if current_user == @workout.user %>
+          <a href="/workouts/<%= @workout.id %>/edit" class="btn btn-block btn-sm btn-outline-secondary">
+            Edit workout
+          </a>
+        <% end %>
       </div>
       <!-- Edit link workout end -->
 
       <!-- Delete link workout start -->
       <div class="col">
-        <a href="/delete_workout/<%= @workout.id %>" class="btn btn-block btn-outline-secondary">
-          Delete workout
-        </a>
+        <% if current_user == @workout.user %>
+          <a href="/delete_workout/<%= @workout.id %>" class="btn btn-block btn-sm btn-outline-secondary">
+            Delete workout
+          </a>
+        <% end %>
       </div>
       <!-- Delete link workout end -->
     </div>
